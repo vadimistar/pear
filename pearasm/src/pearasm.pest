@@ -1,5 +1,7 @@
 WHITESPACE = _{ " " | "\t" }
 
+COMMENT = _{ ";" ~ ANY* }
+
 file = _{ SOI ~ NEWLINE* ~ (instr ~ NEWLINE+) * ~ instr? ~ EOI }
 
 instr = { instr_name ~ instr_arg? }
