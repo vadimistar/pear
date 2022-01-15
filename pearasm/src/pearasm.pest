@@ -1,0 +1,10 @@
+WHITESPACE = _{ " " | "\t" }
+
+file = _{ SOI ~ NEWLINE* ~ (instr ~ NEWLINE+) * ~ instr? ~ EOI }
+
+instr = { instr_name ~ instr_arg? }
+
+instr_name = @{ ASCII_ALPHA+ }
+instr_arg = { integer }
+
+integer = @{ ASCII_DIGIT+ }
